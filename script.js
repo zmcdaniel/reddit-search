@@ -67,17 +67,17 @@ function handleErrors(e){
     $('#spinner').hide();
     var errorCode = "Error ";
     console.log("Something went wrong:", e.status);
-    if (error.status === 404) {
+    if (e.status === 404) {
         errorCode += "404. Page not found.";
-    } else if (error.status === 503) {
+    } else if (e.status === 503) {
         errorCode += "503. Reddit's search is down!";
-    } else if (error.status === 400) {
+    } else if (e.status === 400) {
         errorCode += "400. Bad request.";
-    } else if (error.status === 403) {
+    } else if (e.status === 403) {
         errorCode += "403. Forbidden.";
-    } else if (error.status === 500) {
+    } else if (e.status === 500) {
         errorCode += "500. Internal service error.";
-    } else if (error.status === 401) {
+    } else if (e.status === 401) {
         errorCode += "401. Unauthorized."
     }
     $("#results").html("<div class='center-align'><a class='btn btn-floating btn-large pulse red'><i class='material-icons'>error</i></a><br><h3 class='red-text textdarken-4'>" + errorCode + "</h3></div>");
