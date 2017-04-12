@@ -1,8 +1,8 @@
 # Reddit Search
 
-![screenshot](http://i.imgur.com/nKunSWe.png)
+![screenshot](http://i.imgur.com/8RCiY2X.png)
 
-A small app to search [reddit](reddit.com). Ignore the above screenshot. It will be replaced as soon as Reddit gets their search back in order. 
+A small app to search [reddit](reddit.com). Specifically the cute side.
 
 ## Commands
 * Run `npm install` to install dependencies
