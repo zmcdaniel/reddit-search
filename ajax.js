@@ -15,12 +15,20 @@ function search(e) {
     e.preventDefault();
     clearPreviousSearchResults();
     var myQuery = $('#query').val() || $('#query').attr("placeholder"),
-        myLimit = $('#limit').val() || 25;
-        url = "https://www.reddit.com/search.json";
-    $.get(url, {
-        q: myQuery,
-        limit: myLimit
-     }).done(function(responseData){
+        myLimit = $('#limit').val() || 25,
+        uri = "https://www.reddit.com/search.json?";
+    // $.get(url, {
+    //     q: myQuery,
+    //     limit: myLimit
+    $.ajax({
+        url: uri,
+        method: "GET",
+        crossDomain: true,
+        data: {
+            q: myQuery,
+            limit: myLimit
+        }
+    }).done(function(responseData){
          $('#spinner').hide();
          var searchResults = responseData.data.children;
          for (var key in searchResults) {
@@ -33,13 +41,15 @@ function search(e) {
          if (error.status === 404) {
              errorCode += "404. Page not found.";
          } else if (error.status === 503) {
-             errorCode += "503. Service unavailable.";
+             errorCode += "503. Reddit's search is down!";
          } else if (error.status === 400) {
              errorCode += "400. Bad request.";
          } else if (error.status === 403) {
              errorCode += "403. Forbidden.";
          } else if (error.status === 500) {
              errorCode += "500. Internal service error.";
+         } else if (error.status === 401) {
+             errorCode += "401. Unauthorized."
          }
          $("#results").html("<div class='center-align'><a class='btn btn-floating btn-large pulse red'><i class='material-icons'>error</i></a><br><h3 class='red-text textdarken-4'>" + errorCode + "</h3></div>");
      });
