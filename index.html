@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Hello Front-End</title>
+    <title>Reddit Search</title>
 
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
@@ -25,14 +25,22 @@
 <div class="container">
 
     <div class="row">
-        <form id="search-form" class="col s12 center-align">
+        <form id="search-form" class="col s12 center-align z-depth-1">
             <div class="row">
-                <div class="input-field col s12 m10 l10">
+                <div class="input-field col s12 m9 l9">
                     <input id="query" placeholder="puppy" type="text">
                     <label for="query">Query</label>
                 </div>
+                <div class="input-field col s12 m2 l2">
+                    <select id="sort-by">
+                        <option value="10">Top</option>
+                        <option value="25" selected>New</option>
+                        <option value="50">Rising</option>
+                    </select>
+                    <label>Sort By</label>
+                </div>
                 <div class="input-field col s12 m1 l1">
-                    <select>
+                    <select id="limit">
                         <option value="10">10</option>
                         <option value="25" selected>25</option>
                         <option value="50">50</option>
@@ -43,19 +51,18 @@
                 </div>
             <div class="row">
                 <div class="input-field sol s12 m3 l3">
-                    <a class="waves-effect waves-light btn" id="search-button" type="submit">search reddit</a>
+                    <a class="waves-effect waves-light btn" id="search-button" type="submit">search</a>
                 </div>
             </div>
         </form>
     </div>
 
+
     <div class="progress" id="spinner">
         <div class="indeterminate"></div>
     </div>
-
     <!-- The div where results will be displayed. -->
-    <div id="results" class="row">
-
+    <div id="results" style="padding-top: 1em;">
     </div>
 
 

@@ -12,15 +12,14 @@ $(document).ready(function(){
 function search(e) {
     console.log("Request fired!");
     $('#spinner').show();
-
     e.preventDefault();
     clearPreviousSearchResults();
-
     var myQuery = $('#query').val() || $('#query').attr("placeholder"),
+        myLimit = $('#limit').val() || 25;
         url = "https://www.reddit.com/search.json";
-
-     $.get(url, {
-         q: myQuery
+    $.get(url, {
+        q: myQuery,
+        limit: myLimit
      }).done(function(responseData){
          $('#spinner').hide();
          var searchResults = responseData.data.children;
@@ -42,7 +41,7 @@ function search(e) {
          } else if (error.status === 500) {
              errorCode += "500. Internal service error.";
          }
-         $("#results").html("<h3 class='center-align red-text textdarken-4'>" + errorCode + "</h3>");
+         $("#results").html("<div class='center-align'><a class='btn btn-floating btn-large pulse red'><i class='material-icons'>error</i></a><br><h3 class='red-text textdarken-4'>" + errorCode + "</h3></div>");
      });
 }
 
@@ -66,41 +65,28 @@ function addNewSearchResults(resultObject){
         cardContent = document.createElement("div"),
         viewMore = document.createElement("a"),
         addIcon = document.createElement("i");
-
     card.className += ("card");
     grid.className += ("col s12 m6 l4");
     cardImage.className += ("card-image");
     cardContent.className += ("card-content");
     viewMore.className += ("btn-floating halfway-fab waves-effect waves-light red");
     addIcon.className += ("material-icons");
-
     viewMore.href = resultObject.url;
-
     text.textContent = truncateTextContent(resultObject.title);
     cardContent.append(text);
-
     image.setAttribute("height", 300);
-
     if (isImageUrl(resultObject.url)){
         image.src = resultObject.url;
     } else {
-        // image.src = "img/cats.jpg";
         image.setAttribute("background-color", "red");
     }
-
     addIcon.textContent = "add";
-
     viewMore.append(addIcon);
-
     cardImage.append(image);
     cardImage.append(viewMore);
-
-
     $(card).append(cardImage);
     $(card).append(cardContent);
-
     $(grid).append(card);
-
     $("#results").append(grid);
 }
 
