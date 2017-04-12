@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<nav class="nav-extended">
+<nav class=" indigo darken-2">
     <div class="nav-wrapper">
         <a href="#" class="brand-logo center">Reddit Search</a>
     </div>
@@ -51,16 +51,56 @@
                 </div>
             <div class="row">
                 <div class="input-field sol s12 m3 l3">
-                    <a class="waves-effect waves-light btn" id="search-button" type="submit">search</a>
+                    <a class="waves-effect waves-light indigo accent-2 btn" id="search-button" type="submit">search</a>
                 </div>
             </div>
         </form>
     </div>
 
+    <div class="center-align" id="spinner">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
 
-    <div class="progress" id="spinner">
-        <div class="indeterminate"></div>
+            <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+        </div>
     </div>
+
     <!-- The div where results will be displayed. -->
     <div id="results" style="padding-top: 1em;">
     </div>
