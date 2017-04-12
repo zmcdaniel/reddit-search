@@ -1,6 +1,6 @@
 # Reddit Search
 
-[Imgur](http://i.imgur.com/nKunSWe.png)
+![screenshot](http://i.imgur.com/nKunSWe.png)
 
 A small app to search [reddit](reddit.com). Ignore the above screenshot. It will be replaced as soon as Reddit gets their search back in order. 
 
