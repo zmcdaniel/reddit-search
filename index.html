@@ -15,14 +15,43 @@
 </head>
 <body>
 
+<nav class="nav-extended">
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">Reddit Search</a>
+    </div>
+
+</nav>
+
 <div class="container">
 
-    <h1>Reddit Search</h1>
+    <div class="row">
+        <form id="search-form" class="col s12 center-align">
+            <div class="row">
+                <div class="input-field col s12 m10 l10">
+                    <input id="query" placeholder="puppy" type="text">
+                    <label for="query">Query</label>
+                </div>
+                <div class="input-field col s12 m1 l1">
+                    <select>
+                        <option value="10">10</option>
+                        <option value="25" selected>25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <label>Results</label>
+                </div>
+                </div>
+            <div class="row">
+                <div class="input-field sol s12 m3 l3">
+                    <a class="waves-effect waves-light btn" id="search-button" type="submit">search reddit</a>
+                </div>
+            </div>
+        </form>
+    </div>
 
-    <form id="search-form">
-        <input id="query" placeholder="puppy">
-        <a class="waves-effect waves-light btn" id="search-button" type="submit">search reddit</a>
-    </form>
+    <div class="progress" id="spinner">
+        <div class="indeterminate"></div>
+    </div>
 
     <!-- The div where results will be displayed. -->
     <div id="results" class="row">

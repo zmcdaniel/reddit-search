@@ -6,3 +6,7 @@
 .btn-floating {
     z-index: 999; !important;
 }
+
+#search-form {
+    margin-top: 3em;
+}
