@@ -17,7 +17,7 @@
     <!-- Materialze JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
     <!-- Custom JS -->
-    <script src="ajax.js"></script>
+    <script src="script.js"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -46,9 +46,11 @@
                 </div>
                 <div class="input-field col s12 m2 l2">
                     <select id="sort-by">
-                        <option value="10">Top</option>
-                        <option value="25" selected>New</option>
-                        <option value="50">Rising</option>
+                        <option value="top">Top</option>
+                        <option value="new" selected>Newest</option>
+                        <option value="hot">Hot & rising</option>
+                        <option value="comments">Most comments</option>
+                        <option value="relevance">Relevance</option>
                     </select>
                     <label>Sort By</label>
                 </div>
@@ -115,7 +117,7 @@
     </div>
 
     <!-- The div where results will be displayed. -->
-    <div id="results" style="padding-top: 1em;">
+    <div id="results" style="padding-top: 1em;" class="row">
     </div>
 
 
