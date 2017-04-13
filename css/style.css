@@ -6,8 +6,12 @@ body {
 
 main {
     flex: 1 0 auto;
+    background-color: #fafafa;
 }
 
+#search-form {
+    background-color: #fff;
+}
 
 .card-content a {
     text-decoration: none;
