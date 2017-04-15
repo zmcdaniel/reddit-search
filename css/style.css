@@ -42,3 +42,7 @@ main {
 .card-image {
     height: 300px;
 }
+
+.results {
+    padding-top: 1em;
+}

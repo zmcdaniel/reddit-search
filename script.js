@@ -11,9 +11,9 @@ $(document).ready(function(){
  */
 function search(e) {
     console.log("Request fired!");
-    $('#spinner').fadeIn();
     e.preventDefault();
     clearPreviousSearchResults();
+    $('#spinner').hide();
     var myQuery = $('#query').val() || $('#query').attr("placeholder"),
         myLimit = $('#limit').val() || 25,
         mySort = $('#sort').val(),
@@ -51,7 +51,10 @@ function clearPreviousSearchResults(){
  * @param resultObject
  */
 function addNewSearchResults(resultObject){
-    $("#results").append(create(resultObject));
+    var results = $("#results"),
+        message = create(resultObject);
+    results.hide();
+    results.append(message).fadeIn(1000);
 }
 
 /**
@@ -63,6 +66,10 @@ function isImageUrl(url){
     return (/\.(gif|jpg|jpeg|tiff|png)$/i).test(url);
 }
 
+/**
+ * Error handler for status codes
+ * @param e
+ */
 function handleErrors(e){
     $('#spinner').hide();
     var errorCode = "Error ";
