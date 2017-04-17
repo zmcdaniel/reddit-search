@@ -13,10 +13,10 @@ function search(e) {
     console.log("Request fired!");
     e.preventDefault();
     clearPreviousSearchResults();
-    $('#spinner').hide();
+    $('#spinner').show();
     var myQuery = $('#query').val() || $('#query').attr("placeholder"),
         myLimit = $('#limit').val() || 25,
-        mySort = $('#sort').val(),
+        mySort = $('#sort-by').val(),
         uri = "https://www.reddit.com/r/aww/search.json?";
     $.ajax({
         url: uri,
@@ -73,7 +73,7 @@ function isImageUrl(url){
 function handleErrors(e){
     $('#spinner').hide();
     var errorCode = "Error ";
-    console.log("Something went wrong:", e.status);
+
     if (e.status === 404) {
         errorCode += "404. Page not found.";
     } else if (e.status === 503) {
@@ -87,7 +87,16 @@ function handleErrors(e){
     } else if (e.status === 401) {
         errorCode += "401. Unauthorized."
     }
-    $("#results").html("<div class='center-align'><a class='btn btn-floating btn-large pulse red'><i class='material-icons'>error</i></a><br><h3 class='red-text textdarken-4'>" + errorCode + "</h3></div>");
+
+    var errorHTML = "<div class='center-align'>" +
+                        "<a class='btn btn-floating btn-large pulse red'><i class='material-icons'>error</i></a>" +
+                        "<br><h3 class='red-text textdarken-4'>" + errorCode + "</h3>" +
+                    "</div>";
+
+    console.log("Something went wrong:", e.status);
+
+    $("#results").append(errorHTML);
+    //$("#results").html("<div class='center-align'><a class='btn btn-floating btn-large pulse red'><i class='material-icons'>error</i></a><br><h3 class='red-text textdarken-4'>" + errorCode + "</h3></div>");
 }
 
 /**
