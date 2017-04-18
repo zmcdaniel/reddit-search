@@ -2,6 +2,40 @@ $(document).ready(function(){
    $('#search-button').on('click', search);
     $('#spinner').hide();
     $('select').material_select();
+    $('input.autocomplete').autocomplete({
+        data: {
+            "r/AskReddit": null,
+            "r/funny": null,
+            "r/TodayILearned": null,
+            "r/science": null,
+            "r/worldnews": null,
+            "r/pics": null,
+            "r/IAmA": null,
+            "r/gaming": null,
+            "r/videos": null,
+            "r/movies": null,
+            "r/music": null,
+            "r/aww": null,
+            "r/news": null,
+            "r/gifs": null,
+            "r/explainlikeimfive": null,
+            "r/askscience": null,
+            "r/AdviceAnimals": null,
+            "r/woahdude": null,
+            "r/cats": null,
+            "r/OldSchoolCool": null,
+            "r/photoshopbattles": null,
+            "r/RoomPorn": null,
+            "r/trees": null,
+            "r/WTF": null,
+            "r/RoastMe": null
+        },
+        limit: 4, // The max amount of results that can be shown at once. Default: Infinity.
+        onAutocomplete: function(val) {
+            // Callback function when value is autcompleted.
+        },
+        minLength: 1 // The minimum length of the input for the autocomplete to start. Default: 1.
+    });
 });
 
 
@@ -17,7 +51,7 @@ function search(e) {
     var myQuery = $('#query').val() || $('#query').attr("placeholder"),
         myLimit = $('#limit').val() || 25,
         mySort = $('#sort-by').val(),
-        uri = "https://www.reddit.com/r/aww/search.json?";
+        uri = "https://www.reddit.com/search.json?";
     $.ajax({
         url: uri,
         method: "GET",
@@ -107,7 +141,11 @@ function handleErrors(e){
 function setPreview(object){
     var img;
     if (!object.preview){
-        return "img/text.png";
+        if (object.thumbnail === "nsfw") {
+            return "img/nsfw-thumb.png";
+        } else {
+            return "img/text-thumb.png";
+        }
     } else {
         return object.preview.images[0].source.url;
     }
@@ -136,7 +174,7 @@ function create(object) {
         "       <div class='card'>" +
         "           <div class='card-image'>" +
         "               <img src='" + image + "'>" +
-        "               <a class='btn-floating halfway-fab waves-effect waves-light red' href='"+ object.url + "'><i class='material-icons'>add</i></a>" +
+        "               <a class='btn-floating halfway-fab waves-effect waves-light orange accent-2' target='_blank' href='"+ object.url + "'><i class='material-icons'>add</i></a>" +
         "           </div>" +
         "           <div class='card-content'>" +
         "               <p>" + text + "</p>" +

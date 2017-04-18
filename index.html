@@ -40,10 +40,16 @@
     <div class="row">
         <form id="search-form" class="col s12 center-align z-depth-1">
             <div class="row">
-                <div class="input-field col s12 m9 l9">
+                <div class="input-field col s12 m8 l8">
                     <input id="query" placeholder="puppy" type="text">
                     <label for="query">Query</label>
                 </div>
+                <div class="input-field col s12 m4 l4">
+                    <input type="text" id="autocomplete-input" class="autocomplete" value="r/all">
+                    <label for="autocomplete-input">Autocomplete</label>
+                </div>
+            </div>
+            <div class="row">
                 <div class="input-field col s12 m2 l2">
                     <select id="sort-by">
                         <option value="top">Top</option>
@@ -63,7 +69,11 @@
                     </select>
                     <label>Results</label>
                 </div>
+                <div class="input-field col s12 m1 l1">
+                    <input type="checkbox" id="include-nsfw" checked/>
+                    <label for="include-nsfw" style="font-size: 1rem;">SFW</label>
                 </div>
+            </div>
             <div class="row">
                 <div class="input-field sol s12 m3 l3">
                     <a class="waves-effect waves-light indigo accent-2 btn" id="search-button" type="submit">search</a>
